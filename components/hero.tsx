@@ -2,29 +2,32 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { AnimatedGroup } from "./ui/animationGroup";
 import { Button } from "./ui/button";
+import Image from "next/image";
+import mail2 from "../public/mail2.webp";
+import mail2Light from "../public/mail2-light.webp";
 
 export function Hero() {
   return (
     <>
-      <main className="overflow-hidden">
+      <main className="overflow-x-hidden">
         <div
           aria-hidden
-          className="z-2 absolute inset-0 pointer-events-none isolate opacity-50 contain-strict hidden lg:block"
+          className="z-2 absolute inset-0 pointer-events-none isolate opacity-50 contain-strict hidden lg:block overflow-hidden"
         >
           <div className="w-140 h-320 -translate-y-[350px] absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]" />
           <div className="h-320 absolute left-0 top-0 w-56 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
           <div className="h-320 -translate-y-[350px] absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
         </div>
-        <div className="flex gap-40 rotate-[-20deg] absolute -top-160 -right-120 z-0 blur-[6rem] skew-[-40deg] opacity-55">
+        <div className="hidden lg:flex gap-40 rotate-[-20deg] absolute -top-160 -right-120 z-0 blur-[6rem] skew-[-40deg] opacity-55 pointer-events-none overflow-hidden">
           <div className="w-56 h-120 bg-linear-90 from-white to-blue-300"></div>
           <div className="w-56 h-120 bg-linear-90 from-white to-blue-300"></div>
         </div>
-        <div className="flex gap-40 rotate-[-20deg] absolute -top-200 -right-160 z-0 blur-[6rem] skew-[-40deg] opacity-55">
+        <div className="hidden lg:flex gap-40 rotate-[-20deg] absolute -top-200 -right-160 z-0 blur-[6rem] skew-[-40deg] opacity-55 pointer-events-none overflow-hidden">
           <div className="w-56 h-120 bg-linear-90 from-white to-blue-300"></div>
           <div className="w-56 h-120 bg-linear-90 from-white to-blue-300"></div>
           <div className="w-56 h-120 bg-linear-90 from-white to-blue-300"></div>
         </div>
-        <div className="flex gap-40 rotate-[-20deg] absolute -top-240 -right-240 z-0 blur-[6rem] skew-[-40deg] opacity-55">
+        <div className="hidden lg:flex gap-40 rotate-[-20deg] absolute -top-240 -right-240 z-0 blur-[6rem] skew-[-40deg] opacity-55 pointer-events-none overflow-hidden">
           <div className="w-56 h-160 bg-linear-90 from-white to-blue-300"></div>
           <div className="w-56 h-160 bg-linear-90 from-white to-blue-300"></div>
           <div className="w-56 h-160 bg-linear-90 from-white to-blue-300"></div>
@@ -129,17 +132,19 @@ export function Hero() {
                   className="bg-linear-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
                 />
                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-                  <img
+                  <Image
                     className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                    src="https://tailark.com//_next/image?url=%2Fmail2.png&w=3840&q=75"
+                    src={mail2}
                     alt="app screen"
+                    quality={100}
                     width="2700"
                     height="1440"
                   />
-                  <img
+                  <Image
                     className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
-                    src="https://tailark.com/_next/image?url=%2Fmail2-light.png&w=3840&q=75"
+                    src={mail2Light}
                     alt="app screen"
+                    quality={100}
                     width="2700"
                     height="1440"
                   />

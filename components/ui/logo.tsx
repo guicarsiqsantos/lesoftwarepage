@@ -7,8 +7,8 @@ export function Logo() {
       <Image
         src="/logo.png"
         alt="Lesoftware Logo"
-        width={140}
-        height={30}
+        width={160}
+        height={50}
         quality={100}
         priority
       />
