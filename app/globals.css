@@ -126,3 +126,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Carrossel infinito de logos */
+@keyframes logos-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-logos-scroll {
+  animation: logos-scroll 30s linear infinite;
+}
