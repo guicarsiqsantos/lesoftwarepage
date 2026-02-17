@@ -2,6 +2,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { AnimatedGroup } from "./ui/animationGroup";
 import { Button } from "./ui/button";
+import { TypingWords } from "./ui/typing-words";
 import Image from "next/image";
 import mail2 from "../public/mail2.webp";
 import mail2Light from "../public/mail2-light.webp";
@@ -62,8 +63,11 @@ export function Hero() {
                     </div>
                   </span>
 
-                  <h1 className="mt-8 max-w-4xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                    Soluções modernas para sua empresa
+                  <h1 className="mt-8 max-w-6xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                    Soluções modernas para sua empresa -{" "}
+                    <span className="inline-block whitespace-nowrap">
+                      <TypingWords />
+                    </span>
                   </h1>
                   <p className="mx-auto mt-8 max-w-2xl text-balance text-lg">
                     Desenvolvemos soluções personalizadas para atender às
@@ -94,8 +98,8 @@ export function Hero() {
                       size="lg"
                       className="rounded-xl px-5 text-base"
                     >
-                      <Link href="#link">
-                        <span className="text-nowrap">Start Building</span>
+                      <Link href="#contato">
+                        <span className="text-nowrap">Começe agora</span>
                       </Link>
                     </Button>
                   </div>
@@ -106,8 +110,8 @@ export function Hero() {
                     variant="ghost"
                     className="h-10.5 rounded-xl px-5"
                   >
-                    <Link href="#link">
-                      <span className="text-nowrap">Request a demo</span>
+                    <Link href="#beneficios">
+                      <span className="text-nowrap">Saiba mais</span>
                     </Link>
                   </Button>
                 </AnimatedGroup>
@@ -153,7 +157,7 @@ export function Hero() {
             </AnimatedGroup>
           </div>
         </section>
-        <section className="bg-background pb-16 pt-16 md:pb-32">
+        <section className="bg-background pb-24 pt-20 md:pb-32 md:pt-24">
           <div className="group relative m-auto max-w-5xl px-6">
             <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
               <Link

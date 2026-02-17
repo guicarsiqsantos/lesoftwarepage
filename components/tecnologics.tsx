@@ -26,7 +26,7 @@ const imgClass = "h-8 w-auto object-contain object-center";
 
 export function Tecnologics() {
   return (
-    <div id="tecnologias" className="h-screen w-full overflow-hidden mt-24">
+    <div id="tecnologias" className="w-full overflow-hidden py-24 md:py-32">
       <div className="mx-auto w-full max-w-4xl px-4">
         <div className="text-center text-3xl text-foreground">
           <span className="text-indigo-900 dark:text-indigo-200">

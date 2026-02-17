@@ -52,7 +52,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="relative w-full overflow-hidden pb-24 md:pb-32">
+    <section id="servicos" className="relative w-full overflow-hidden py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <AnimatedGroup className="mb-16 text-center">
           <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">

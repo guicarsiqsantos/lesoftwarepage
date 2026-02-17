@@ -55,8 +55,8 @@ export function Benefits() {
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
             Desenvolvemos com foco em qualidade, prazo e um relacionamento
-            transparente. Cada projeto é tratado com a seriedade que sua
-            empresa merece.
+            transparente. Cada projeto é tratado com a seriedade que sua empresa
+            merece.
           </p>
         </div>
 

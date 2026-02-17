@@ -2,7 +2,7 @@ import { Cpu, Lock, Sparkles, Zap } from "lucide-react";
 
 export function Features() {
   return (
-    <section className="mb-44 -mt-54">
+    <section className="py-24 md:py-32">
       <div className="mx-auto max-w-5xl space-y-12 px-6">
         <div className="relative z-10 grid items-center gap-4 md:grid-cols-2 md:gap-12">
           <h2 className="text-4xl font-semibold">
