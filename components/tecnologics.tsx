@@ -5,10 +5,18 @@ import { Sparkles } from "@/components/ui/sparkles";
 
 // Logos em public/logos: versão light (tema claro) e dark (tema escuro) – troca via CSS para evitar hydration
 const LOGOS = [
-  { name: "PostgreSQL", light: "PostgreSql-Black.png", dark: "PostgreSql-White.png" },
+  {
+    name: "PostgreSQL",
+    light: "PostgreSql-Black.png",
+    dark: "PostgreSql-White.png",
+  },
   { name: "React", light: "React-black.png", dark: "React-white.png" },
   { name: "Shadcn", light: "Shadcn-black.png", dark: "Shadcn-white.png" },
-  { name: "TypeScript", light: "typescript-black.png", dark: "typescript-white.png" },
+  {
+    name: "TypeScript",
+    light: "typescript-black.png",
+    dark: "typescript-white.png",
+  },
   { name: "Next.js", light: "next-black.png", dark: "next-white.png" },
   { name: "Node.js", light: "node-black.png", dark: "node-white.png" },
   { name: "Prisma", light: "prisma-black.png", dark: "prisma-white.png" },
@@ -18,7 +26,7 @@ const imgClass = "h-8 w-auto object-contain object-center";
 
 export function Tecnologics() {
   return (
-    <div className="h-screen w-full overflow-hidden">
+    <div id="tecnologias" className="h-screen w-full overflow-hidden mt-24">
       <div className="mx-auto w-full max-w-4xl px-4">
         <div className="text-center text-3xl text-foreground">
           <span className="text-indigo-900 dark:text-indigo-200">

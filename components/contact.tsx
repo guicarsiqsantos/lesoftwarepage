@@ -9,7 +9,8 @@ import { useState } from "react";
 const contactInfo = {
   email: "contato@lesoftware.com.br",
   phone: "(17) 99703-3387",
-  address: "Av Salustiano Pupim, nº1518, Jardim São Jorge, Jales/SP CEP 15-704-190",
+  address:
+    "Av Salustiano Pupim, nº1518, Jardim São Jorge, Jales/SP CEP 15-704-190",
 };
 
 const serviceHours = [
@@ -44,7 +45,9 @@ export function Contact() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setFormData({
       ...formData,
@@ -53,7 +56,7 @@ export function Contact() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden py-24 md:py-32">
+    <section id="contato" className="relative w-full overflow-hidden my-24">
       <div className="mx-auto max-w-7xl px-6">
         <AnimatedGroup className="mb-16 text-center">
           <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
@@ -111,7 +114,9 @@ export function Contact() {
                     className="flex items-center justify-between border-b border-border/50 pb-3 last:border-0"
                   >
                     <span className="text-foreground">{schedule.day}:</span>
-                    <span className="text-muted-foreground">{schedule.time}</span>
+                    <span className="text-muted-foreground">
+                      {schedule.time}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -269,10 +274,7 @@ function ContactItem({
 
   if (href) {
     return (
-      <a
-        href={href}
-        className="block transition-opacity hover:opacity-80"
-      >
+      <a href={href} className="block transition-opacity hover:opacity-80">
         {content}
       </a>
     );
@@ -280,4 +282,3 @@ function ContactItem({
 
   return <div>{content}</div>;
 }
-

@@ -122,6 +122,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+  section[id],
+  div[id] {
+    scroll-margin-top: 6rem;
+  }
   body {
     @apply bg-background text-foreground;
   }

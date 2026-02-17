@@ -32,7 +32,7 @@ export function Hero() {
           <div className="w-56 h-160 bg-linear-90 from-white to-blue-300"></div>
           <div className="w-56 h-160 bg-linear-90 from-white to-blue-300"></div>
         </div>
-        <section>
+        <section id="hero">
           <div className="relative pt-24 md:pt-36">
             <div
               aria-hidden

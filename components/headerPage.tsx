@@ -7,10 +7,10 @@ import { Logo } from "./ui/logo";
 
 export function HeaderPage() {
   const navItems = [
-    { name: "Home", url: "#", icon: Home },
-    { name: "About", url: "#", icon: User },
-    { name: "Projects", url: "#", icon: Briefcase },
-    { name: "Resume", url: "#", icon: FileText },
+    { name: "Início", url: "#hero", icon: Home },
+    { name: "Por que nos escolher", url: "#beneficios", icon: User },
+    { name: "Nossos Serviços", url: "#servicos", icon: Briefcase },
+    { name: "Contato", url: "#contato", icon: FileText },
   ];
 
   return (

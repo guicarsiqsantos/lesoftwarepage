@@ -1,0 +1,170 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import {
+    CheckCircle,
+    TrendingUp,
+    Video,
+    Globe,
+} from "lucide-react";
+
+export interface BentoItem {
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+    status?: string;
+    tags?: string[];
+    meta?: string;
+    cta?: string;
+    colSpan?: number;
+    hasPersistentHover?: boolean;
+}
+
+interface BentoGridProps {
+    items: BentoItem[];
+    /** 2 = grid 2x2, 3 = grid 3 colunas (padrão) */
+    gridCols?: 2 | 3;
+}
+
+const itemsSample: BentoItem[] = [
+    {
+        title: "Analytics Dashboard",
+        meta: "v2.4.1",
+        description:
+            "Real-time metrics with AI-powered insights and predictive analytics",
+        icon: <TrendingUp className="w-4 h-4 text-blue-500" />,
+        status: "Live",
+        tags: ["Statistics", "Reports", "AI"],
+        colSpan: 2,
+        hasPersistentHover: true,
+    },
+    {
+        title: "Task Manager",
+        meta: "84 completed",
+        description: "Automated workflow management with priority scheduling",
+        icon: <CheckCircle className="w-4 h-4 text-emerald-500" />,
+        status: "Updated",
+        tags: ["Productivity", "Automation"],
+    },
+    {
+        title: "Media Library",
+        meta: "12GB used",
+        description: "Cloud storage with intelligent content processing",
+        icon: <Video className="w-4 h-4 text-purple-500" />,
+        tags: ["Storage", "CDN"],
+        colSpan: 2,
+    },
+    {
+        title: "Global Network",
+        meta: "6 regions",
+        description: "Multi-region deployment with edge computing",
+        icon: <Globe className="w-4 h-4 text-sky-500" />,
+        status: "Beta",
+        tags: ["Infrastructure", "Edge"],
+    },
+];
+
+function BentoGrid({ items = itemsSample, gridCols = 3 }: BentoGridProps) {
+    return (
+        <div
+            className={cn(
+                "grid gap-3 p-4 max-w-7xl mx-auto",
+                gridCols === 2
+                    ? "grid-cols-1 md:grid-cols-2"
+                    : "grid-cols-1 md:grid-cols-3"
+            )}
+        >
+            {items.map((item, index) => (
+                <div
+                    key={index}
+                    className={cn(
+                        "group relative p-5 rounded-xl overflow-hidden transition-all duration-300 md:p-6",
+                        "border border-gray-100/80 dark:border-white/10 bg-white dark:bg-[#1a1a1a]",
+                        "hover:shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:hover:shadow-[0_2px_12px_rgba(255,255,255,0.04)]",
+                        "hover:-translate-y-0.5 will-change-transform",
+                        item.colSpan && gridCols === 3 ? (item.colSpan === 2 ? "md:col-span-2" : "col-span-1") : "col-span-1",
+                        {
+                            "shadow-[0_2px_12px_rgba(0,0,0,0.03)] -translate-y-0.5":
+                                item.hasPersistentHover,
+                            "dark:shadow-[0_2px_12px_rgba(255,255,255,0.03)]":
+                                item.hasPersistentHover,
+                        }
+                    )}
+                >
+                    <div
+                        className={`absolute inset-0 ${
+                            item.hasPersistentHover
+                                ? "opacity-100"
+                                : "opacity-0 group-hover:opacity-100"
+                        } transition-opacity duration-300`}
+                    >
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[length:4px_4px]" />
+                    </div>
+
+                    <div className="relative flex flex-col space-y-3">
+                        <div className="flex items-center justify-between">
+                            <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-black/5 dark:bg-white/10 border border-transparent dark:border-white/15 transition-all duration-300 group-hover:bg-primary/10 dark:group-hover:bg-primary/10">
+                                {item.icon}
+                            </div>
+                            {item.status && (
+                                <span
+                                    className={cn(
+                                        "text-xs font-medium px-2 py-1 rounded-full",
+                                        "transition-colors duration-300",
+                                        item.status === "Destaque"
+                                            ? "bg-primary/20 text-primary"
+                                            : "bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-400 group-hover:bg-black/10 dark:group-hover:bg-white/20"
+                                    )}
+                                >
+                                    {item.status}
+                                </span>
+                            )}
+                        </div>
+
+                        <div className="space-y-2">
+                            <h3 className="font-semibold text-gray-900 dark:text-white tracking-tight text-base md:text-lg">
+                                {item.title}
+                                {item.meta && (
+                                    <span className="ml-2 text-xs text-gray-500 dark:text-gray-400 font-normal">
+                                        {item.meta}
+                                    </span>
+                                )}
+                            </h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 leading-snug">
+                                {item.description}
+                            </p>
+                        </div>
+
+                        <div className="flex items-center justify-between mt-2">
+                            <div className="flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
+                                {item.tags?.map((tag, i) => (
+                                    <span
+                                        key={i}
+                                        className="px-2.5 py-1 rounded-full bg-black/5 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 text-xs transition-all duration-200 hover:bg-black/10 dark:hover:bg-zinc-700"
+                                    >
+                                        #{tag}
+                                    </span>
+                                ))}
+                            </div>
+                            {item.cta && (
+                                <span className="text-xs text-gray-500 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {item.cta}
+                                </span>
+                            )}
+                        </div>
+                    </div>
+
+                    <div
+                        className={`absolute inset-0 -z-10 rounded-xl p-px bg-gradient-to-br from-transparent via-gray-100/50 to-transparent dark:via-white/10 ${
+                            item.hasPersistentHover
+                                ? "opacity-100"
+                                : "opacity-0 group-hover:opacity-100"
+                        } transition-opacity duration-300`}
+                    />
+                </div>
+            ))}
+        </div>
+    );
+}
+
+export { BentoGrid }
