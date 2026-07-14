@@ -1,30 +1,34 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export function Logo() {
   return (
-    <a href="/" className="relative inline-block h-[50px] w-40">
-      {/* Tema claro: logo preta */}
+    <Link
+      href="/"
+      className="relative inline-block h-[50px] w-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+      aria-label="Lesoftware — página inicial"
+    >
       <Image
         src="/logo-black.png"
-        alt="Lesoftware Logo"
+        alt="Lesoftware"
         width={160}
         height={50}
         quality={100}
         priority
         className="object-contain dark:hidden"
       />
-      {/* Tema escuro: logo branca */}
       <Image
         src="/logo.png"
-        alt="Lesoftware Logo"
+        alt=""
         width={160}
         height={50}
         quality={100}
         priority
         className="hidden object-contain dark:block"
+        aria-hidden
       />
-    </a>
+    </Link>
   );
 }

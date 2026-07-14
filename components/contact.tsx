@@ -1,17 +1,11 @@
 "use client";
 
-import { Mail, Phone, MapPin, Clock, Send, ChevronDown } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ChevronDown } from "lucide-react";
 import { AnimatedGroup } from "./ui/animationGroup";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
-const contactInfo = {
-  email: "contato@lesoftware.com.br",
-  phone: "(17) 99703-3387",
-  address:
-    "Av Salustiano Pupim, nº1518, Jardim São Jorge, Jales/SP CEP 15-704-190",
-};
+import { siteConfig } from "@/lib/site";
 
 const serviceHours = [
   { day: "Segunda a Sexta", time: "8h às 18h" },
@@ -56,14 +50,22 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="relative w-full overflow-hidden py-24 md:py-32">
+    <section
+      id="contato"
+      aria-labelledby="contato-heading"
+      className="relative w-full overflow-hidden py-24 md:py-32"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <AnimatedGroup className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h2
+            id="contato-heading"
+            className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"
+          >
             Entre em Contato
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Pronto para transformar suas ideias em realidade? Vamos conversar!
+            Conte o desafio da sua empresa. Vamos conversar sobre o
+            desenvolvimento de software sob medida ideal para o seu contexto.
           </p>
         </AnimatedGroup>
 
@@ -81,25 +83,32 @@ export function Contact() {
               <h3 className="mb-6 text-xl font-semibold text-primary">
                 Fale Conosco
               </h3>
-              <div className="space-y-6">
+              <address className="not-italic space-y-6">
                 <ContactItem
                   icon={Mail}
                   label="Email"
-                  value={contactInfo.email}
-                  href={`mailto:${contactInfo.email}`}
+                  value={siteConfig.email}
+                  href={`mailto:${siteConfig.email}`}
                 />
                 <ContactItem
                   icon={Phone}
                   label="Telefone"
-                  value={contactInfo.phone}
-                  href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
+                  value={siteConfig.telephone}
+                  href={`tel:${siteConfig.telephoneInternational}`}
+                />
+                <ContactItem
+                  icon={Phone}
+                  label="WhatsApp"
+                  value={siteConfig.telephone}
+                  href={siteConfig.whatsapp}
+                  external
                 />
                 <ContactItem
                   icon={MapPin}
                   label="Endereço"
-                  value={contactInfo.address}
+                  value={siteConfig.address.formatted}
                 />
-              </div>
+              </address>
             </div>
 
             {/* Horário de Atendimento */}
@@ -254,16 +263,18 @@ function ContactItem({
   label,
   value,
   href,
+  external = false,
 }: {
   icon: React.ComponentType<{ className?: string }>;
   label: string;
   value: string;
   href?: string;
+  external?: boolean;
 }) {
   const content = (
     <div className="flex items-start gap-4">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-        <Icon className="h-5 w-5" />
+        <Icon className="h-5 w-5" aria-hidden />
       </div>
       <div className="flex-1">
         <p className="mb-1 text-sm font-medium text-foreground">{label}</p>
@@ -274,7 +285,13 @@ function ContactItem({
 
   if (href) {
     return (
-      <a href={href} className="block transition-opacity hover:opacity-80">
+      <a
+        href={href}
+        className="block transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
+        {...(external
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+      >
         {content}
       </a>
     );

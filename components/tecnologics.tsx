@@ -26,15 +26,20 @@ const imgClass = "h-8 w-auto object-contain object-center";
 
 export function Tecnologics() {
   return (
-    <div id="tecnologias" className="w-full overflow-hidden py-24 md:py-32">
+    <section
+      id="tecnologias"
+      aria-labelledby="tecnologias-heading"
+      className="w-full overflow-hidden py-24 md:py-32"
+    >
       <div className="mx-auto w-full max-w-4xl px-4">
-        <div className="text-center text-3xl text-foreground">
+        <h2
+          id="tecnologias-heading"
+          className="text-center text-3xl text-foreground"
+        >
           <span className="text-indigo-900 dark:text-indigo-200">
-            Tecnologia que nos trabalhamos
+            Tecnologias com as quais trabalhamos
           </span>
-          <br />
-          <span>Development.</span>
-        </div>
+        </h2>
 
         {/* Carrossel infinito – duas imagens por logo (light/dark) e CSS controla qual mostrar */}
         <div className="mt-14 w-full overflow-hidden">
@@ -76,6 +81,6 @@ export function Tecnologics() {
           className="absolute inset-x-0 bottom-0 h-full w-full mask-[radial-gradient(50%_50%,white,transparent_85%)]"
         />
       </div>
-    </div>
+    </section>
   );
 }

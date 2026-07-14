@@ -46,11 +46,15 @@ export function Benefits() {
   return (
     <section
       id="beneficios"
+      aria-labelledby="beneficios-heading"
       className="relative w-full overflow-hidden border-t border-border/50 bg-background py-24 md:py-32"
     >
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h2
+            id="beneficios-heading"
+            className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"
+          >
             Feito para atender suas necessidades
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">

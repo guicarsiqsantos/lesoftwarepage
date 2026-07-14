@@ -22,15 +22,14 @@ export function ThemeToggle({ className }: { className?: string }) {
   const isDark = theme === "dark";
 
   return (
-    <div
+    <button
+      type="button"
       className={cn(
-        "flex items-center gap-1 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg cursor-pointer transition-all duration-300",
+        "flex items-center gap-1 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg cursor-pointer transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className
       )}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      role="button"
-      tabIndex={0}
-      aria-label="Alternar tema"
+      aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
     >
       <div className="flex justify-between items-center gap-1">
         <div
@@ -62,6 +61,6 @@ export function ThemeToggle({ className }: { className?: string }) {
           />
         </div>
       </div>
-    </div>
+    </button>
   );
 }

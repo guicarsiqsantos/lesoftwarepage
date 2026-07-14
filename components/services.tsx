@@ -52,15 +52,22 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="relative w-full overflow-hidden py-24 md:py-32">
+    <section
+      id="servicos"
+      aria-labelledby="servicos-heading"
+      className="relative w-full overflow-hidden py-24 md:py-32"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <AnimatedGroup className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h2
+            id="servicos-heading"
+            className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"
+          >
             Nossos Serviços
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Soluções tecnológicas sob medida para impulsionar o crescimento da
-            sua empresa.
+            Desenvolvimento de sistemas web, aplicativos, e-commerce, automações
+            e soluções digitais personalizadas para a sua empresa.
           </p>
         </AnimatedGroup>
 
